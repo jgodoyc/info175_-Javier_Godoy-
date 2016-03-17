@@ -7,6 +7,7 @@ if __name__== "__main__":
 	while existe:
 		print "Ingrese frase: "
 		linea = raw_input()
+		linea = linea.upper()
 		if linea == "":
 			existe = False
 		lista.append(linea)
