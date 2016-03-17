@@ -10,6 +10,7 @@ if __name__== "__main__":
 		linea = linea.upper()
 		if linea == "":
 			existe = False
+			break
 		lista.append(linea)
 	print lista
 		
