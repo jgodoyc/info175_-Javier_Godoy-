@@ -11,6 +11,6 @@ if __name__== "__main__":
 		if linea == "":
 			existe = False
 		lista.append(linea)
-	
+	print lista
 		
 
