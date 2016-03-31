@@ -53,8 +53,15 @@ def encrypt():
 	print (palabraRara)
 	    	
 
-def escriptacion:	
+def encriptacion():	
 	encrypt()
 
 
-	
+root = Tk()
+
+var = StringVar()
+label = Label( root, textvariable=var)
+
+var.set("Ingrese texto que desea encriptar")
+label.pack()
+root.mainloop()
