@@ -57,11 +57,26 @@ def encriptacion():
 	encrypt()
 
 
-root = Tk()
+ventana = Tk()
+ventana.title("encriptacion")
+ventana.geometry("400x500")
 
 var = StringVar()
-label = Label( root, textvariable=var)
+label = Label( ventana, text="Ingrese texto que desea encriptar")
 
-var.set("Ingrese texto que desea encriptar")
+texto_BOX = Text(ventana, height=15, width=55) #son caracteres de distancia
+texto_BOX.place(x=5, y=20)	#son pixeles de distancia
+
+opcion1 = Radiobutton(ventana, text="Cesar")
+opcion1.place(x=10, y=250)
+numSpin = Spinbox(ventana, from_=0, to=26, textvariable="numero")
+numSpin.place(x=75, y=250)
+
+opcion2 = Radiobutton(ventana, text="Cenit-Polar")
+opcion2.place(x=200, y=250)
+
+boton = Button(ventana, text="ENCRIPTAR", command=lambda:accionBoton())
+boton.place(x=150, y=450)
+
 label.pack()
-root.mainloop()
+ventana.mainloop()
