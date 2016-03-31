@@ -67,16 +67,22 @@ label = Label( ventana, text="Ingrese texto que desea encriptar")
 texto_BOX = Text(ventana, height=15, width=55) #son caracteres de distancia
 texto_BOX.place(x=5, y=20)	#son pixeles de distancia
 
-opcion1 = Radiobutton(ventana, text="Cesar")
-opcion1.place(x=10, y=250)
+opcion1 = Radiobutton(ventana, text="Cesar", value=1)
+opcion1.place(x=10, y=255)
 numSpin = Spinbox(ventana, from_=0, to=26, textvariable="numero")
-numSpin.place(x=75, y=250)
+numSpin.place(x=75, y=255)
 
-opcion2 = Radiobutton(ventana, text="Cenit-Polar")
-opcion2.place(x=200, y=250)
+opcion2 = Radiobutton(ventana, text="Cenit-Polar", value=2)
+opcion2.place(x=200, y=255)
 
 boton = Button(ventana, text="ENCRIPTAR", command=lambda:accionBoton())
 boton.place(x=150, y=450)
 
+#label2 = Label( ventana, textvariable= texto_BOX)
+#label2.place(x=10, y=270)
+
+textoEntr = texto_BOX.get("1.0",END)
 label.pack()
+#label2.pack()
+#hasta aqui nomas quede no hacen nada los botones solo h
 ventana.mainloop()
