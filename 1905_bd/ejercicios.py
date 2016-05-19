@@ -22,13 +22,13 @@ with con:
       print row
 #-----------------------------------------------------------------------------------------------------
     print "----------Total de ventas por cliente----------"
-    cur.execute("SELECT COUNT(gross_total), entity.names, entity.company_name FROM sale JOIN entity WHERE sale.entity_id = entity.id GROUP BY entity_id ORDER BY entity.names LIMIT 10")
+    cur.execute("SELECT COUNT(sale.gross_total), entity.names, FROM sale JOIN entity WHERE sale.entity_id = entity.id GROUP BY entity.name LIMIT 10")
     rows = cur.fetchall()
     for row in rows:
       print row
 #------------------------------------------------------------------------------------------------------
     print "------Total de ventas por cliente en año 2014-----"
-    cur.execute("SELECT COUNT(gross_total), entity.names, entity.company_name FROM sale JOIN entity WHERE sale.entity_id = entity.id AND [date] BETWEEN '2014-01-01' AND '2014-12-31'  GROUP BY entity_id ORDER BY entity.names LIMIT 10")
+    cur.execute("SELECT COUNT(sale.gross_total), entity.names, FROM sale JOIN entity WHERE sale.entity_id = entity.id AND [date] BETWEEN '2014-01-01' AND '2014-12-31'  GROUP BY entity.names LIMIT 10")
     rows = cur.fetchall()
     for row in rows:
       print row
@@ -40,7 +40,7 @@ with con:
       print row
 #------------------------------------------------------------------------------------------------------
     print"----Cantidad y montos totales agrupados por producto en orden descendente segun cantidad------"
-    cur.execute("SELECT SUM(quantity), SUM(gross_total), product.name FROM sale_product JOIN product WHERE product_id=product.id GROUP BY sale_product.product_id ORDER BY quantity DESC LIMIT 10 ")
+    cur.execute("SELECT product.name, SUM(sale_product.quantity), SUM(sale_product.gross_total),  FROM sale_product JOIN product WHERE sale.product_id=product.id GROUP BY product.name ORDER BY SUM(sale_product.quantity) DESC LIMIT 10 ")
     rows = cur.fetchall()
     for row in rows:
       print row
